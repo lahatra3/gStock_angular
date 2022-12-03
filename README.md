@@ -1,0 +1,1 @@
+# gStock_angular
