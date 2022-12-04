@@ -27,7 +27,7 @@ export class AuthService {
     }
 
     logIn(donnees: AuthModel): Observable<any> {
-        return this.http.post(environment.baseUrl + '/auth', 
+        return this.http.post(environment.baseUrl + '/auth/users', 
             donnees, {observe: 'response'});
     }
 

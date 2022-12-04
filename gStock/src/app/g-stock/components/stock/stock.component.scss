@@ -1,0 +1,10 @@
+table {
+    border-collapse: collapse;
+    tr {
+        th, td {
+            padding: 1rem;
+            border: 1px solid rgba(5, 5, 37, 0.938);
+            border-collapse: collapse;
+        }
+    }
+}

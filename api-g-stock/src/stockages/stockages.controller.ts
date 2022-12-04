@@ -21,6 +21,6 @@ export class StockagesController {
     @UseGuards(AuthGuard('jwtGStock'))
     @Get('all')
     async findAllStock() {
-        return await this.stockService.findAll();
+        return await this.stockService.findAll()
     }
 }

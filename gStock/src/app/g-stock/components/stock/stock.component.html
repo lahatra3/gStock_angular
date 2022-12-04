@@ -1,1 +1,20 @@
-<p>stock works!</p>
+<div *ngIf="stock$ | async">
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Created at</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of stock$ | async">
+                <td>{{ data.id }}</td>
+                <td> {{ data.nom | titlecase }}</td>
+                <td>{{ data.description }}</td>
+                <td>{{ data.created_at | date : 'EEEE, dd MMMM yyyy à HH:mm:ss' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

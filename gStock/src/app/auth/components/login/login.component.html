@@ -1,1 +1,32 @@
-<p>login works!</p>
+<div class="form_container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- INPUT FOR EMAIL -->
+        <div class="container_input">
+            <label for="email">Email:</label>
+            <input id="email" type="email" placeholder="*** Email"
+                formControlName="email" required>
+        </div>
+
+        <!-- INPUT FOR PASSWORD -->
+        <div class="container_input">
+            <label for="password">Mot de passe:</label>
+            <input id="password" [type]="inputType" placeholder="*** Mot de passe"
+                formControlName="password" required>
+        </div>
+
+        <!-- INPUT FOR CHECKBOX -->
+        <div class="container_checkbox">
+            <input id="checkbox" type="checkbox" role="switch" (change)="onShowPassword($event)">
+            <label for="checkbox">{{ textCheckbox }}</label>
+        </div>
+
+        <!-- MESSAGE FOR ERROR -->
+        <div *ngIf="unauthorized" class="display_error">{{ errorMessage }}</div>
+
+        <!-- SUBMIT BUTTON -->
+        <div class="container_submit_button">
+            <button type="submit" class="submit_button"
+                [disabled]="loginForm.invalid">Se connecter</button>
+        </div>
+    </form>
+</div>

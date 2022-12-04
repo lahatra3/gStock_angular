@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+*, *::after, *::before {
+    font-size: .9rem;
+    font-family: sans-serif;
+}
+
+body {
+    background: #fff;
+    color: rgba(5, 5, 37, 0.938);
+}

@@ -1,7 +1,9 @@
-<div>
+<div class="container">
     <ul>
-        <li routerLink="/gstock/accueil">Accueil</li>
-        <li routerLink="/gstock/stock">Stock</li>
+        <li *ngFor="let data of menu"
+            [routerLink]="data.route"
+            routerLinkActive="active_menu"
+            [routerLinkActiveOptions]="{exact: true}">{{ data.label }}</li>
     </ul>
     <router-outlet></router-outlet>
 </div>

@@ -19,7 +19,7 @@ export class UsersService {
         .values({
             nom: donnees.nom,
             email: donnees.email,
-            password: () => "SHA2('"+ donnees.password +"')"
+            password: () => "SHA2('"+ donnees.password +"', 256)"
         })
         .execute();
     }
@@ -27,14 +27,20 @@ export class UsersService {
     async findAll(): Promise<Users[]> {
         return await this.usersRepository
         .createQueryBuilder('u')
-        .select(['u.id as id', 'u.email as email', 'u.created_at as created_at'])
+        .select([
+            'u.id as id', 'u.nom as nom',
+            'u.email as email', 'u.created_at as created_at'
+        ])
         .getRawMany();
     }
 
     async find(donnees: ParamUsersIdDto): Promise<Users> {
         return await this.usersRepository
         .createQueryBuilder('u')
-        .select(['u.id as id', 'u.email as email', 'u.created_at as created_at'])
+        .select([
+            'u.id as id', 'u.nom as nom',
+            'u.email as email', 'u.created_at as created_at'
+        ])
         .where(`u.id=:identifiant`, { identifiant: donnees.user_id })
         .getRawOne()
     }
