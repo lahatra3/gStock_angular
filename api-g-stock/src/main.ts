@@ -10,7 +10,7 @@ async function bootstrap() {
     .setTitle('GStock API')
     .setDescription("Interface de documentation de GStock API")
     .setVersion('1.0.0')
-    .addTag('Omega')
+    .addTag('lahatra3')
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
